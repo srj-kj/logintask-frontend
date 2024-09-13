@@ -1,12 +1,11 @@
-'use client';
-
-import { useEffect, useState } from 'react';
+"use client"
+import React, { useEffect, useState } from 'react'
+import ProfilePage from './sections/profile'
 import { useRouter } from "next/navigation";
-import { getAuthSession } from "@/auth/auth";
-import Homepage from "./Home/sections/home";
-import Login from './login/sections/login';
+import { getAuthSession } from '@/auth/auth';
 
-export default function Home() {
+
+const page = () => {
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);
   const [token, setToken] = useState(null);
@@ -29,7 +28,10 @@ export default function Home() {
 
   return (
     <>
-      {token ? <Homepage /> : <Login />} 
+      {token ? <ProfilePage /> : ""} 
     </>
   );
 }
+
+
+export default page
